@@ -1,0 +1,442 @@
+@import "tailwindcss";
+
+
+/* 
+:root {
+    --ns-green: #1B4D3E;
+    --ns-lightgreen: #2D6A4F;
+    --ns-gold: #C9A84C;
+    --ns-lightgold: #E8D5A3;
+    --ns-dark: #1A1A2E;
+    --ns-cream: #F5F0E6;
+} */
+/* ============================================
+   NOSCAROSYLVA JOURNEYS - CUSTOM THEME
+   Inspired by Enugu Air Branding
+   ============================================ */
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+/* ============================================
+   CSS CUSTOM PROPERTIES (Color Palette)
+   ============================================ */
+:root {
+  /* Enugu Air Inspired Palette */
+  --ns-primary: #0B4D3C;        /* Deep Forest Green */
+  --ns-primary-light: #1A6B52;  /* Lighter Green */
+  --ns-primary-dark: #073828;   /* Darker Green */
+  --ns-accent: #D4A843;         /* Warm Gold */
+  --ns-accent-light: #F0D78A;   /* Pale Gold */
+  --ns-accent-dark: #B8922E;    /* Dark Gold */
+  --ns-white: #FFFFFF;
+  --ns-cream: #FDF8F0;          /* Warm Cream Background */
+  --ns-dark: #1A1A2E;
+  --ns-gray-50: #F9F7F4;
+  --ns-gray-100: #F0EBE3;
+  --ns-gray-200: #E0D8CC;
+  --ns-gray-300: #C4B8A8;
+  --ns-gray-400: #9A8E7E;
+  --ns-gray-500: #7A6E5E;
+  --ns-gray-600: #5A4E3E;
+  --ns-gray-700: #3A3228;
+  --ns-gray-800: #2A2218;
+  --ns-gray-900: #1A1208;
+  
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-accent: 'Cormorant Garamond', Georgia, serif;
+  
+  /* Spacing */
+  --section-padding: 5rem;
+  --card-radius: 1rem;
+  --btn-radius: 9999px;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ns-gray-700);
+  background-color: var(--ns-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   TYPOGRAPHY CLASSES
+   ============================================ */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+}
+
+/* ============================================
+   COLOR UTILITY CLASSES
+   ============================================ */
+.text-ns-primary { color: var(--ns-primary); }
+.text-ns-primary-light { color: var(--ns-primary-light); }
+.text-ns-primary-dark { color: var(--ns-primary-dark); }
+.text-ns-accent { color: var(--ns-accent); }
+.text-ns-accent-light { color: var(--ns-accent-light); }
+.text-ns-accent-dark { color: var(--ns-accent-dark); }
+.text-ns-cream { color: var(--ns-cream); }
+.bg-ns-primary { background-color: var(--ns-primary); }
+.bg-ns-primary-light { background-color: var(--ns-primary-light); }
+.bg-ns-primary-dark { background-color: var(--ns-primary-dark); }
+.bg-ns-accent { background-color: var(--ns-accent); }
+.bg-ns-accent-light { background-color: var(--ns-accent-light); }
+.bg-ns-accent-dark { background-color: var(--ns-accent-dark); }
+.bg-ns-cream { background-color: var(--ns-cream); }
+.bg-ns-gray-50 { background-color: var(--ns-gray-50); }
+.bg-ns-gray-100 { background-color: var(--ns-gray-100); }
+.border-ns-primary { border-color: var(--ns-primary); }
+.border-ns-accent { border-color: var(--ns-accent); }
+
+/* ============================================
+   HOVER STATES
+   ============================================ */
+.hover\:bg-ns-primary-dark:hover {
+  background-color: var(--ns-primary-dark);
+}
+
+.hover\:bg-ns-accent-dark:hover {
+  background-color: var(--ns-accent-dark);
+}
+
+.hover\:text-ns-accent:hover {
+  color: var(--ns-accent);
+}
+
+.hover\:text-ns-primary:hover {
+  color: var(--ns-primary);
+}
+
+.hover\:border-ns-accent:hover {
+  border-color: var(--ns-accent);
+}
+
+/* ============================================
+   FOCUS RING
+   ============================================ */
+.focus\:ring-ns-primary:focus {
+  --tw-ring-color: var(--ns-primary);
+}
+
+.focus\:border-ns-primary:focus {
+  border-color: var(--ns-primary);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+/* Fade In Up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* Fade In */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0;
+}
+
+/* Slide In Left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}
+
+/* Slide In Right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}
+
+/* Scale In */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}
+
+/* Gold Shimmer Effect for Accent Elements */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--ns-accent) 0%,
+    var(--ns-accent-light) 25%,
+    var(--ns-accent) 50%,
+    var(--ns-accent-light) 75%,
+    var(--ns-accent) 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse Glow for CTA */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 168, 67, 0.4); }
+  50% { box-shadow: 0 0 20px 10px rgba(212, 168, 67, 0); }
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* ============================================
+   CARD & IMAGE EFFECTS
+   ============================================ */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(11, 77, 60, 0.15);
+}
+
+.image-zoom {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.image-zoom:hover {
+  transform: scale(1.08);
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--ns-accent);
+  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   HERO OVERLAY GRADIENT
+   ============================================ */
+.hero-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(11, 77, 60, 0.85) 0%,
+    rgba(7, 56, 40, 0.7) 50%,
+    rgba(11, 77, 60, 0.5) 100%
+  );
+}
+
+/* ============================================
+   SECTION DIVIDERS
+   ============================================ */
+.gold-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ns-accent), var(--ns-accent-light));
+  border-radius: 2px;
+}
+
+/* ============================================
+   FORM STYLES
+   ============================================ */
+.form-input {
+  transition: all 0.3s ease;
+  border: 1px solid var(--ns-gray-200);
+}
+
+.form-input:focus {
+  border-color: var(--ns-primary);
+  box-shadow: 0 0 0 3px rgba(11, 77, 60, 0.1);
+  outline: none;
+}
+
+/* ============================================
+   PRICE TAG
+   ============================================ */
+.price-tag {
+  background: linear-gradient(135deg, var(--ns-primary), var(--ns-primary-light));
+  color: var(--ns-white);
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ns-gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ns-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ns-primary-dark);
+}
+
+/* ============================================
+   MOBILE MENU (CSS Only - FIXED)
+   ============================================ */
+/* The checkbox is hidden */
+#menu-toggle {
+  display: none;
+}
+
+/* When checkbox is checked, show the mobile menu */
+#menu-toggle:checked ~ .mobile-menu-container {
+  display: block;
+  animation: fadeInUp 0.3s ease-out;
+}
+
+/* Hamburger icon animation */
+#menu-toggle:checked ~ .nav-container .hamburger-icon .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#menu-toggle:checked ~ .nav-container .hamburger-icon .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-toggle:checked ~ .nav-container .hamburger-icon .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.hamburger-line {
+  transition: all 0.3s ease;
+}
+
+#menu-toggle:checked ~ div .mobile-menu {
+  display: block;
+}
+
+#menu-toggle:checked ~ div .menu-icon-open {
+  display: none;
+}
+
+#menu-toggle:checked ~ div .menu-icon-close {
+  display: block;
+}
+
+.menu-icon-close {
+  display: none;
+}
+
+/* Selection color */
+::selection {
+    background-color: rgba(212, 168, 67, 0.3);
+    color: #0B4D3C;
+}
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 3rem;
+  }
+}
